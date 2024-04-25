@@ -8,7 +8,7 @@ import { DataTable } from "@/ui/dashboard/table/data-table"
 import { useGetMarketNewsQuery } from "@/store/features/market/MarketNewsService"
 
 
-const AnalyticsTable = () => {
+const MarketTable = () => {
   const {data: martetNewsData, isLoading} = useGetMarketNewsQuery();
 
   return (
@@ -18,4 +18,4 @@ const AnalyticsTable = () => {
   )
 }
 
-export default AnalyticsTable
+export default MarketTable

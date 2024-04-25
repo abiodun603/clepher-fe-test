@@ -8,7 +8,6 @@ import { Assets } from '@/assets'
 // ** Components
 import MenuLink from "./menuLink/menuLink";
 
-
 const MENU_ITEMS = [
   {
     title: "Menu",
@@ -25,13 +24,12 @@ const MENU_ITEMS = [
 
 
 const Sidebar =  () => {
-
   return (
     <div className="sticky top-10 h-[100dvh]">
        
       <div className="flex items-center gap-[20px] mb-14">
         <Image
-          src={"/logo-black.svg"}
+          src={Assets.logoBlack}
           alt=""
           width="120"
           height="50"

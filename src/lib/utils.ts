@@ -24,3 +24,10 @@ export const timeConverter = (timeString: string): string => {
 
   return `${dayOfWeek} ${monthName} ${realTime.getDate()} ${realTime.getFullYear()} ${realTime.getHours()}:${realTime.getMinutes()}`;
 };
+
+export function displayRandomNumber(): void {
+  setInterval(() => {
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    console.log("Random number:", randomNumber);
+  }, 5000); 
+}

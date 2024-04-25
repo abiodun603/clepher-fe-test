@@ -6,7 +6,6 @@ import logoBlack from "./logo/logo-black.svg"
 import dashboard from "./icon/dashboard.svg"
 
 
-
 export const Assets = {
   logo,
   logoBlack,

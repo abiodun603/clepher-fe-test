@@ -9,7 +9,6 @@ import { BellRing } from 'lucide-react';
 const Navbar = () => {
   const pathname = usePathname();
 
-
   return (
     <div className="nav">
       <div>

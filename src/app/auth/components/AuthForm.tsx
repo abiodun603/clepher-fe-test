@@ -50,7 +50,7 @@ export const AuthForm = () => {
           {/* Inputs */}
           {
             variant === "REGISTER" && (
-              <Input id="name" label="Name"    register={register} errors={errors} disabled={isLoading} />
+              <Input id="name" label="Name" register={register} errors={errors} disabled={isLoading} />
             )
           }
           <Input id="email"  label="Email address"  register={register} errors={errors} disabled={isLoading} />
