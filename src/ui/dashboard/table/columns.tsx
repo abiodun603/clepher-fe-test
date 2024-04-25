@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ColumnDef } from "@tanstack/react-table"
 
 // ** Icon
-import { EllipsisVertical, Eye  } from 'lucide-react';
+import { EllipsisVertical, Eye, BookOpen  } from 'lucide-react';
 import { timeConverter } from '@/lib/utils';
 
 // ** Component
@@ -88,6 +88,8 @@ export const columns: ColumnDef<marketDataDataTableProps>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
+      const marketData = row.original
+      const url: string = marketData?.url || ""
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -98,10 +100,10 @@ export const columns: ColumnDef<marketDataDataTableProps>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="bg-white space-y-2 pl-6 pr-10 py-4">
             <DropdownMenuItem>
-              <Link href="/dashboard/1233" >
+              <Link target="_blank" href={url || "#"} >
                 <div className='flex items-center space-x-2 '>
-                  <Eye className='text-n500 text-sm'/>
-                  <h3 className='text-sm capitalize font-semibold'>View Details</h3>
+                  <BookOpen className='text-n500 text-sm'/>
+                  <h3 className='text-sm capitalize font-semibold'>Read more</h3>
                 </div>
               </Link>
             </DropdownMenuItem>

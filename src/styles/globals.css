@@ -9,6 +9,24 @@
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2EFEE;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9D8D7;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E2E0DF;
+}
+
 @layer base {
   body {
     @apply font-fontSans;
@@ -25,7 +43,7 @@
   }
 
   .small-text {
-    @apply flex gap-2 text-sm font-medium text-primary;
+    @apply flex gap-2 text-sm font-medium;
   }
 
   .paragraph-text {
@@ -34,11 +52,7 @@
 
   /* NAVBAR */
   .nav {
-    @apply flex justify-between items-center px-6 md:px-20 py-4;
-  }
-
-  .nav-logo {
-    @apply font-spaceGrotesk text-[21px] text-secondary font-bold;
+    @apply h-20 flex items-center justify-between px-5 bg-white border-b-[0.5px] border-n400 z-50;
   }
 
 }

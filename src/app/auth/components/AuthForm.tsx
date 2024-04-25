@@ -18,13 +18,6 @@ export const AuthForm = () => {
   const [variant, setVariant] = useState<Variant>('LOGIN')
   const [isLoading, setIsLoading] = useState(false)
 
-//   useEffect(() => {
-//     if(session?.status === 'authenticated') {
-//       router.push("/dashboard")
-//     }
-//   }, [session?.status])
-  
-
   const toggleVariant = useCallback(
     () => {
       if(variant === "LOGIN") {
@@ -38,38 +31,16 @@ export const AuthForm = () => {
 
   const {register, handleSubmit, formState: {errors}} = useForm<FieldValues>({
     defaultValues: {
-      name: '',
-      email: '',
-      password: ''
+      name: 'admin',
+      email: 'admin@gmail.com',
+      password: '12345'
     }
   })
 
   const onSubmit: SubmitHandler<FieldValues> = async(data) => {
     setIsLoading(true);
 
-    if(variant === "REGISTER"){
-      try {
-       
-      } catch (error) {
-        // toast.error("Something went wrong!!!")
-      } finally {
-        
-        setIsLoading(false);
-      }
-    }  
-
-    if(variant === "LOGIN"){
-      // Next Signin
-      try {
-
-      } catch (error) {
-        // toast.error("Something went wrong!!!")
-      } finally{
-        setIsLoading(false);
-      }
-      
-    }  
-    router.push("dashboard")
+    router.push("/dashboard")
   }
   
   return (

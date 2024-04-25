@@ -55,7 +55,7 @@ export function DataTable<TData, TValue>({
               <TableRow key={headerGroup.id} className="border-transparent py-3">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className=" text-n500 text-xs font-semibold uppercase border-none py-3">
+                    <TableHead key={header.id} className=" text-n700 text-sm font-semibold border-none uppercase py-3">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -95,14 +95,14 @@ export function DataTable<TData, TValue>({
       <div className="flex items-center justify-between space-x-2 py-4">
         <div className="w-full">
           <div className="flex items-center space-x-2">
-            <p className="text-n500 text-sm font-normal">Showing</p>
+            <p className="text-n900 text-sm font-normal">Showing</p>
             <Select
               value={`${table.getState().pagination.pageSize}`}
               onValueChange={(value: any) => {
                 table.setPageSize(Number(value))
               }}
             >
-              <SelectTrigger className="h-8 w-[70px] border-none bg-b200/10">
+              <SelectTrigger className="h-8 w-[70px] bg-white">
                 <SelectValue placeholder={table.getState().pagination.pageSize} />
               </SelectTrigger>
               <SelectContent side="top">
@@ -113,7 +113,7 @@ export function DataTable<TData, TValue>({
                 ))}
               </SelectContent>
             </Select>
-            <p className="text-n500 text-sm font-normal mx-2">{`out of ${table?.getRowCount()}`}</p>
+            <p className="text-n900 text-sm font-normal mx-2">{`out of ${table?.getRowCount()}`}</p>
           </div>
         </div>
         <div className="flex items-center space-x-2">
