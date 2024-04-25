@@ -9,7 +9,7 @@ export const marketNewsApi = createApi({
   endpoints: (builder) => ({
     getMarketNews: builder.query<MarketNews, void>({
         query: () => ({
-          url: `/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=1000&apikey=${process.env.NEXT_PUBLIC_STOCKS_API_KEY}`,
+          url: `/query?function=NEWS_SENTIMENT&tickers=COIN,CRYPTO:BTC,FOREX:USD&time_from=20220410T0130&limit=1000&apikey=${process.env.STOCKS_API_KEY}`,
           method: 'GET',
         }),
       }),
