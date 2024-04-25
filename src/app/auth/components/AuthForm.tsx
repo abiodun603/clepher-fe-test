@@ -69,6 +69,7 @@ export const AuthForm = () => {
       }
       
     }  
+    router.push("dashboard")
   }
   
   return (
