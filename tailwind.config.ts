@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      colors: {
+        primary: "#1487FF",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -31,6 +34,9 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        fontSans: ['FontSans', 'sans-serif'],
       },
     },
   },
