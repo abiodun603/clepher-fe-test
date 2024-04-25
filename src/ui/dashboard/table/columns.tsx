@@ -6,6 +6,9 @@ import { ColumnDef } from "@tanstack/react-table"
 
 // ** Icon
 import { EllipsisVertical, Eye  } from 'lucide-react';
+import { timeConverter } from '@/lib/utils';
+
+// ** Libs
 
 // ** Component
 import { DataTableColumnHeader } from './column-header';
@@ -15,15 +18,17 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 
 // This type is used to define the shape of our data.
 export type marketDataDataTableProps = {
   id?: number;
   title: string
-  category_within_source: string
+  source: string
   authors: string[]
   time_published?:string;
+  banner_image: string;
 }
 
 
@@ -37,23 +42,31 @@ export const columns: ColumnDef<marketDataDataTableProps>[] = [
     cell: ({ row }) => {
       const marketData = row?.original
       const title: string = marketData?.title || ""
+      const banner_image: string = marketData?.banner_image 
 
-      return <div>
-        <p className="table-text capitalize">{title}</p>
-      </div>
+    
+      return <div className='flex items-center space-x-2'>
+                <div>
+                  <Avatar className="w-[40px] h-[40px]">
+                    <AvatarImage src={banner_image}  />
+                    <AvatarFallback>{title.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                </div>
+                <p className="table-text capitalize truncate">{title}</p>
+              </div>
     },
   },
   {
-    accessorKey: "category_within_source",
+    accessorKey: "source",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Category" />
+      <DataTableColumnHeader column={column} title="Source" />
     ),      
     cell: ({ row }) => {
         const marketData = row.original
-        const caterory: string = marketData?.category_within_source || ""
+        const source: string = marketData?.source || ""
 
         return <div>
-          <p className='table-text capitalize'>{caterory}</p>
+          <p className='table-text capitalize'>{source}</p>
         </div>
       },
     },
@@ -78,22 +91,9 @@ export const columns: ColumnDef<marketDataDataTableProps>[] = [
     ),   
     cell: ({ row }) => {
       const marketData = row.original
-      const time_published: string = marketData?.authors[0] || ""
+      const time_published: string = marketData?.time_published || ""
  
-      return <p className="table-text">{time_published || "---"}</p>
-    },
-  },
-  {
-    accessorKey: "date",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Date Joined" />
-    ),   
-    cell: ({ row }) => {
-      const date: string  = row.getValue("date")
- 
-      return <div className="flex items-center space-x-4">
-        <div className="table-text">{date || "---"}</div>
-      </div>
+      return <p className="table-text">{timeConverter(time_published) || "---"}</p>
     },
   },
   {
