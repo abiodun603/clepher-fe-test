@@ -8,8 +8,6 @@ import { ColumnDef } from "@tanstack/react-table"
 import { EllipsisVertical, Eye  } from 'lucide-react';
 import { timeConverter } from '@/lib/utils';
 
-// ** Libs
-
 // ** Component
 import { DataTableColumnHeader } from './column-header';
 import {
@@ -20,17 +18,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-
-// This type is used to define the shape of our data.
-export type marketDataDataTableProps = {
-  id?: number;
-  title: string
-  source: string
-  authors: string[]
-  time_published?:string;
-  banner_image: string;
-}
-
+// ** Types
+import { marketDataDataTableProps } from '@/types/types';
 
 export const columns: ColumnDef<marketDataDataTableProps>[] = [
   {
